@@ -1,6 +1,9 @@
 <div>
   <h3><%= XXX.name %></h3>
-  <%= image_tag XXX.get_profile_image(100,100) %>
+  <%= image_tag XXX.get_profile_image(100,100) %></p>
+  <% if @user == current_user %>
+    <p><%= link_to "プロフィール編集", edit_user_path</p>
+  <% end %>
 </div>
 
 <% @books.each do |book| %>
