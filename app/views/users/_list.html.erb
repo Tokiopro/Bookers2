@@ -1,20 +1,44 @@
 <div>
-  <h3><%= user.name  %></h3>
+  <h2>User info</h2>
   <p><%= image_tag user.get_profile_image(100,100) %></p>
+  <table>
+    <tbody>
+      <tr></tr>
+      <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
+  
   <% if user == current_user %>
     <p><%= link_to "プロフィール編集", edit_user_path(user.id) %></p>
   <% end %>
-</div>
 
-<%# user.each do |user| %>
-<%#<div>
-  <h2>User info</h2>
-  <%= link_to user_path(user.id) do %>
-    <%#= image_tag user.get_image %>
-  <%# end %>
-  <%#<p>投稿ユーザー画像：<%= image_tag user.get_profile_image(100,100) %><%#</p>
-  <%#<p>ショップ名：<%= user.title %><%#/p>
-  <%#<p>説明：<%= user.body %><%#</p>
-  <%#<p>ユーザーネーム：<%= user.name %><%#</p>
-<%#</div>
+<h2>New Book</h2>
+
+<% if @book.errors.any? %>
+  <%= @book.errors.count %> error prohibited this book from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+    <li>
+      <%= message %>
+    </li>
+    <% end %>
+  </ul>
 <% end %>
+
+<%= form_with model: @book do |f| %>
+
+    <h4>Title</h4>
+    <%= f.text_field :title %>
+
+    <h4>Body</h4>
+    <%= f.text_area :body %>
+    <%= f.submit 'Create Book' %>
+<% end %>
+</div>
