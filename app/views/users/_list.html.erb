@@ -6,15 +6,15 @@
   <% end %>
 </div>
 
-<% user.each do |user| %>
-<div>
+<%# user.each do |user| %>
+<%#<div>
   <h2>User info</h2>
   <%= link_to user_path(user.id) do %>
-    <%= image_tag user.get_image %>
-  <% end %>
-  <p>投稿ユーザー画像：<%= image_tag user.get_profile_image(100,100) %></p>
-  <p>ショップ名：<%= user.title %></p>
-  <p>説明：<%= user.body %></p>
-  <p>ユーザーネーム：<%= user.name %></p>
-</div>
+    <%#= image_tag user.get_image %>
+  <%# end %>
+  <%#<p>投稿ユーザー画像：<%= image_tag user.get_profile_image(100,100) %></p>
+  <%#<p>ショップ名：<%= user.title %><<%#/p>
+  <%#<p>説明：<%= user.body %><%#</p>
+  <%#<p>ユーザーネーム：<%= user.name %><%#</p>
+<%#</div>
 <% end %>
