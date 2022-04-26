@@ -1,2 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.nav-item {
+    color: white;
+}
+
+.nav-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+}
